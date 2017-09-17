@@ -1,0 +1,24 @@
+---
+output: html_document
+---
+#September 17, 2017
+
+## **Plotly bar chart showing sales using ggplotly**
+
+```{r, echo=FALSE}
+suppressMessages(library(plotly))
+suppressMessages(library(tidyverse))
+```
+
+
+```{r, echo=FALSE}
+
+sales <- data.frame(period=as.factor(c(1,2,3,4,5)), sales=c(100,200,300,400,500))
+
+ggplotly(sales %>%
+        ggplot(aes(period, sales)) +
+        geom_bar(fill='blue',stat = 'identity') +
+        labs(title='Sales from January to May', x='Months', y='Sales'))
+```
+
+
