@@ -16,10 +16,12 @@ suppressMessages(library(tidyverse))
 sales <- suppressMessages(read_csv('https://raw.githubusercontent.com/alvaropabon/plotly_page/master/sales.csv'))
 sales$period<-as.factor(sales$period)
 
-ggplotly(sales %>%
+chart<-ggplotly(sales %>%
         ggplot(aes(period, sales)) +
         geom_bar(fill='blue',stat = 'identity') +
         labs(title='Sales from January to May', x='Months', y='Sales'))
+
+chart
 ```
 
 
